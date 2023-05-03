@@ -1,0 +1,28 @@
+on:
+  workflow_dispatch:
+    inputs:
+      version_number:
+        description: 'Manually specify version number to deploy. It should be in the format of "X.Y.Z". No `v` prefix.'
+        required: true
+   
+          
+name: Deploy to Production environment version ${{ github.event.inputs.version_number }}
+
+jobs:
+  release-job:
+    name: Release job
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Get version to deploy
+      id: version
+      run: |
+        echo "::set-output name=to_deploy::${{ github.event.inputs.version_number }}"
+
+    - name: Show Release Info
+      run: |
+        echo "Pushing release ${{ steps.version.outputs.to_deploy }} to production"
+
+    - name: Checkout
+      uses: actions/checkout@v2
+    
