@@ -1,0 +1,17 @@
+on:
+  release:
+    types: [prereleased]
+
+name: Deploy to Stadion Dev
+
+jobs:
+  prerelease:
+    name: Deploy to Stadion Dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get current version
+        id: version
+        run: echo "::set-output name=current::$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER"
