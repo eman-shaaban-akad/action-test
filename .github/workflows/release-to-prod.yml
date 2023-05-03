@@ -6,7 +6,7 @@ on:
         required: true
    
           
-name: "Deploy to Production environment version ::${{ github.event.inputs.version_number }}"
+name: "Deploy to Production environment version ${{ inputs.version_number }}"
 
 jobs:
   release-job:
