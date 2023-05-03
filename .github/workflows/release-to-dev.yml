@@ -14,4 +14,4 @@ jobs:
 
       - name: Get current version
         id: version
-        run: echo "::set-output name=current::$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER"
+        run: echo "{name}={current::$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER}"
