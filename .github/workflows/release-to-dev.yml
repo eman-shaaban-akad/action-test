@@ -11,16 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Get current version
-        id: version
-        run: echo "current=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER"
-        #run: echo "::set-output name=current::$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER"        
-        
-      - name: Build image
+      - name: Trigger update for the Dev service
         run: |
-           echo $VERSION
-        env:
-          #VERSION: ${{ steps.version.outputs.current }}
-          VERSION: ${{ steps.version.outputs.current }}
+          echo ${GITHUB_REF##*/}
         
