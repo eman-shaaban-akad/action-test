@@ -11,7 +11,7 @@ env:
 jobs:
 
   build-and-push:
-    name: Builds the code and pushes a docker image to ECR
+    name: Builds the code and pushes 
 
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
