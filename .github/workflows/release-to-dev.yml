@@ -14,4 +14,4 @@ jobs:
 
       - name: Get current version
         id: version
-        run: echo "{current}={$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER}"
+        run: echo "version=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_OUTPUT
