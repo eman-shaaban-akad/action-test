@@ -11,7 +11,7 @@ env:
 jobs:
 
   build-and-push:
-    name: Builds the code test
+    name: Builds the code test log
 
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
