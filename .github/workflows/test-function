@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+ 
+          
+name: Deploy to test function
+
+# run-name: Deploy to Production / version ${{ github.event.inputs.version_number }}
+
+jobs:
+  release-job:
+    name: Release job
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Get version to deploy
+      id: version
+      run: |
+        echo "deploy function on request"
+
+    - name: Checkout
+      uses: actions/checkout@v2
+    
